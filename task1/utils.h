@@ -1,0 +1,10 @@
+#ifndef FUN_H
+#define FUN_H
+
+
+bool IsPrime(long long p);
+void Ferma(long long a, long long p, long long x);
+bool gcd(long long a, long long p);
+long long modBinary(long long base, long long power, long long modulo);
+
+#endif
