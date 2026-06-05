@@ -74,11 +74,13 @@ void  El_gamala (string mess){
     long long x = kluch(p);
 
     long long y = modBinary(g, x, p);
+    vector<unsigned char> data(mess.begin(), mess.end());
 
 
     cout << "простое число: " << p << endl << "первообразный корень: "<< g << " " << endl << "секретный ключ: "<< x << endl<< "открытый ключ: " << y << endl << endl;
     
-    for(char m: mess){
+    for(size_t pos = 0; pos < data.size(); pos++){
+        int m = data[pos];
         long long k = kluch(p);
         long long a = modBinary(g, k, p);
         long long b = modBinary(y, k, p) * __int128(m) % p;
