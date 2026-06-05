@@ -67,12 +67,7 @@ long long modBinary(long long base, long long power, long long modulo) {
 
 
 
-void  El_gamala (wstring mess){
-
-    setlocale(LC_ALL, "");
-    
-    wcout.imbue(locale(""));
-
+void  El_gamala (string mess){
     vector<pair<long long, long long>> shifr;
     long long p = 19997; //любое простое число (большое)
     long long g = 5;
@@ -80,26 +75,25 @@ void  El_gamala (wstring mess){
 
     long long y = modBinary(g, x, p);
 
-    wcout << mess << endl;
-    wcout << L"простое число: " << p << endl <<L"первообразный корень: "<< g << L" " << endl << L"секретный ключ: "<< x << endl<< L"открытый ключ: " << y << endl << endl;
+
+    cout << "простое число: " << p << endl << "первообразный корень: "<< g << " " << endl << "секретный ключ: "<< x << endl<< "открытый ключ: " << y << endl << endl;
     
-    for(wchar_t m: mess){
-        wcout << m << endl;
+    for(char m: mess){
         long long k = kluch(p);
         long long a = modBinary(g, k, p);
         long long b = modBinary(y, k, p) * __int128(m) % p;
         shifr.push_back({a, b});
         
-        wcout << L"ключ для конкретного символа: " << k << endl;
-        wcout << L"зашифрован пара для символа " << m<< ": " << a << " " << b << endl << endl;
+        cout << "ключ для конкретного символа: " << k << endl;
+        cout << "зашифрован пара для символа " << m<< ": " << a << " " << b << endl << endl;
     }
-    wcout << L"расшифровка" << endl;
+    cout << "расшифровка" << endl;
     for(const auto& para: shifr){
         long long a1 = modBinary(para.first, (p-1-x), p);
         // long long a2 = modBinary(a1, (p-2), p);
         long long M = para.second * a1 % p;
 
-        wcout << L"пара для символа: "<< para.first << " " << para.second << L"  расшифр символ: " << char(M) << endl;
+        cout << "пара для символа: "<< para.first << " " << para.second << "расшифр символ: " << char(M) << endl;
         
 
     }

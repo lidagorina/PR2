@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-void  El_gamala(wstring mess);
+void  El_gamala(string mess);
 
 
 #endif

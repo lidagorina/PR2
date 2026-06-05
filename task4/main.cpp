@@ -7,18 +7,17 @@ using namespace std;
 int main(){
 
     setlocale(LC_ALL, "Russian");
-    locale:: global(locale(""));
-    wcout.imbue(locale(""));
+    
     // long long u, v;
 
-    wstring mess;
+    string mess;
 
     cout << "введите сообщение: ";
     
     
-    wstring line;
-        while(getline(wcin, line)){
-        mess += line + L"\n";
+    string line;
+        while(getline(cin, line)){
+        mess += line + "\n";
 
         }
     
