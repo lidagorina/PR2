@@ -26,7 +26,7 @@ bool IsPrime(long long p){
     return true;
 }
 
-bool gcd(long long a, long long p){
+long long gcd(long long a, long long p){
     while(p){
         a%=p;
         swap(a,p);
@@ -63,22 +63,22 @@ return result;
 void Ferma(long long a, long long p, long long x){
     if(!IsPrime(p)){
         cout << "p - должно быть простым";
-        return;
+        return ;
     }
 
     if(a % p == 0){
-        cout << "делятся на друг друга a и p" << endl;
+        cout << "a кратно p, теорема Ферма не выполняется" << endl;
         return;
     }
     
     if(gcd(a, p) != 1){
         cout << "a и p не взаимно простые";
-        return;
+        return ; 
     }
 
     long long new_pow = x % (p - 1);
 
-    cout << modBinary(a, new_pow, p) << endl; //теорема ферма
+    cout << modBinary(a, new_pow, p) << endl; 
 
 
 }
