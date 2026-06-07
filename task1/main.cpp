@@ -4,25 +4,30 @@ using namespace std;
 
 int main(){
 
-    long long a;
-    long long p;
-    long long x;
+    long long a ;
+    long long p ;
+    long long x ;
 
-    cout << "a: ";
+    
+
+    cout << "Введите основание  a: ";
     cin >> a;
 
-    cout << "p: ";
+    cout << "Введите степень p: ";
     cin >> p;
 
-    cout << "x: ";
+    cout << "Введите модуль x: ";
     cin >> x;
 
+    cout << endl;
+    cout << "Вычисляем " << a << "^" << p << " mod " << x << endl;
+    cout << endl;
 
     cout << "Теорема Ферма" << endl;
     Ferma(a, p, x);
 
-    cout << "бинароное возведение в степень" << endl;
-    cout << modBinary(a, x, p) << endl;
+    cout << endl << "бинароное возведение в степень" << endl;
+    modBinary(a, p, x) ;
 
 
 

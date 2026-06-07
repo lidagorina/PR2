@@ -12,8 +12,10 @@ using namespace std;
 long long Evklid_extended(long long a, long long b, long long &u, long long &v) {
     u = 1, v = 0;
     long long u1 = 0, v1 = 1;
+    int step = 0;
     
     while (b) {
+        step ++;
         long long q = a / b;
         
         long long r = a % b;     
@@ -27,6 +29,13 @@ long long Evklid_extended(long long a, long long b, long long &u, long long &v) 
         long long v2 = v - q * v1;  // новое v
         v = v1;
         v1 = v2;
+
+        cout << "Шаг: " << step << endl;
+        cout << "q = " << q << endl;
+        cout << "r = " << r << endl;
+        cout << "u1 = " << u << endl;
+        cout << "v1 = " << v << endl;
+        cout << endl;
     }
     
     return a;
@@ -50,17 +59,15 @@ void cep_drob(long long a, long long b){
     while(b != 0){ // usual Evklid
         q = a / b;
         cep.push_back(q);
-
         r = a % b;
+        cout << a << " / " << b << " = " << q << "  остаток - " << r << endl;
+
+        
         a = b;
         b = r;
     }
 
-    for(auto c: cep){
-        cout << c << endl; // цулая часть при деление
-    }
-
-
+   
 
 }
 
@@ -74,8 +81,8 @@ void reshenie(){
     long long d = 119;
 
     long long gcd = Evklid_extended(a, b, u, v);
-    cout << "НОД " << gcd << endl << "лин разложение по евк  u = " << u << "  v = " << v << endl;
-
+    cout << "НОД = " << gcd << endl << "линейное разложение по Евклиду  u = " << u << "  v = " << v << endl;
+    cout << a << " * " << u << " + " << b << " * " << v << " = " << gcd << endl;
     if(d % gcd != 0){
         cout << "нет целочисленных решений" << endl;
     }

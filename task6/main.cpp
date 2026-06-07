@@ -25,4 +25,4 @@ int main(){
     reshenie();
 }
 
-//control d (для запуска 1)
+//control d 

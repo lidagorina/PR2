@@ -1,18 +1,23 @@
 #include<iostream>
 #include <string>
 #include "fun.h"
+#include<locale>
 using namespace std;
 
 
 int main(){
 
-    setlocale(LC_ALL, "Russian");
-    
-    // long long u, v;
+    // setlocale(LC_ALL, "en_US.UTF-8");
+    // wcout.imbue(locale("en_US.UTF-8"));
+    // wcin.imbue(locale("en_US.UTF-8"));
+
+
 
     string mess;
+    
 
     cout << "введите сообщение: ";
+    
     
     
     string line;
@@ -21,9 +26,13 @@ int main(){
 
         }
     
+    cout << mess << endl;
 
 
-    // Evklid_extended(c, m, u, v);
+    
+    for(char i: mess){
+        cout << i << endl;
+    }
 
     El_gamala(mess);
 
@@ -31,4 +40,4 @@ int main(){
     return 0;
 }
 
-//control d (для запуска 1)
+//control d 

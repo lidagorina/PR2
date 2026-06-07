@@ -49,17 +49,17 @@ long long modBinary(long long base, long long power, long long modulo) {
 
     base %= modulo;
 
-    long long result = 1;  // Используем long long вместо int!
+    long long result = 1;  
 
     // Бинарное возведение в степень
     while (power > 0) {
     
-        if (power %2 == 1) {  // power % 2 == 1
+        if (power %2 == 1) {  
             result = (result * base) % modulo;
         }
         
         base = (base * base) % modulo;
-        power /= 2;  // power /= 2
+        power /= 2;  
     }
 
     return result;
@@ -74,28 +74,29 @@ void  El_gamala (string mess){
     long long x = kluch(p);
 
     long long y = modBinary(g, x, p);
-    vector<unsigned char> data(mess.begin(), mess.end());
+    
 
 
     cout << "простое число: " << p << endl << "первообразный корень: "<< g << " " << endl << "секретный ключ: "<< x << endl<< "открытый ключ: " << y << endl << endl;
-    
-    for(size_t pos = 0; pos < data.size(); pos++){
-        int m = data[pos];
+    cout << mess;
+    for(wchar_t m: mess){
+        wcout << m << endl;
+        
         long long k = kluch(p);
         long long a = modBinary(g, k, p);
         long long b = modBinary(y, k, p) * __int128(m) % p;
         shifr.push_back({a, b});
         
         cout << "ключ для конкретного символа: " << k << endl;
-        cout << "зашифрован пара для символа " << m<< ": " << a << " " << b << endl << endl;
+        cout << "зашифрована пара для символа " << char(m) << ": " << a << " " << b << endl << endl;
     }
     cout << "расшифровка" << endl;
     for(const auto& para: shifr){
         long long a1 = modBinary(para.first, (p-1-x), p);
-        // long long a2 = modBinary(a1, (p-2), p);
+       
         long long M = para.second * a1 % p;
 
-        cout << "пара для символа: "<< para.first << " " << para.second << "расшифр символ: " << char(M) << endl;
+        cout << "пара для символа: "<< para.first << "  " << para.second << " расшифр символ: " << char(M) << endl;
         
 
     }
