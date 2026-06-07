@@ -22,7 +22,7 @@ int main(){
     Ferma(a, p, x);
 
     cout << "бинароное возведение в степень" << endl;
-    cout << modBinary(a, x, p);
+    cout << modBinary(a, x, p) << endl;
 
 
 

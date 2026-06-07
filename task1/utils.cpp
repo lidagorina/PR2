@@ -62,17 +62,17 @@ return result;
 
 void Ferma(long long a, long long p, long long x){
     if(!IsPrime(p)){
-        cout << "p - должно быть простым";
+        cout << "p - должно быть простым" << endl;
         return ;
     }
 
     if(a % p == 0){
-        cout << "a кратно p, теорема Ферма не выполняется" << endl;
+        cout << "a кратно p, теорема Ферма не выполняется" << endl << endl;
         return;
     }
     
     if(gcd(a, p) != 1){
-        cout << "a и p не взаимно простые";
+        cout << "a и p не взаимно простые" << endl;
         return ; 
     }
 
