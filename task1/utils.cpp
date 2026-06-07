@@ -38,23 +38,21 @@ bool gcd(long long a, long long p){
 
 
 long long modBinary(long long base, long long power, long long modulo) {
-// Обработка особого случая
+
 if (modulo == 1) return 0;
 
-// Приводим основание к диапазону
 base %= modulo;
+long long result = 1; 
 
-long long result = 1;  // Используем long long вместо int!
 
-// Бинарное возведение в степень
 while (power > 0) {
    
-    if (power %2 == 1) {  // power % 2 == 1
+    if (power % 2 == 1) {  
         result = (result * base) % modulo;
     }
     
     base = (base * base) % modulo;
-    power /= 2;  // power /= 2
+    power /= 2;  
 }
 
 return result;
@@ -66,12 +64,13 @@ void Ferma(long long a, long long p, long long x){
     if(!IsPrime(p)){
         cout << "p - должно быть простым";
         return;
-        
     }
+
     if(a % p == 0){
         cout << "делятся на друг друга a и p" << endl;
         return;
     }
+    
     if(gcd(a, p) != 1){
         cout << "a и p не взаимно простые";
         return;
