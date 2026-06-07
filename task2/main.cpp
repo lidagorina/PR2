@@ -18,9 +18,10 @@ int main(){
 
     long long gcd = Evklid_extended(c, m, u, v);
 
-    // long long x = c * d;
     
-    cout << "НОД " << gcd << endl << "лин разложение по евк  u = " << u << "  v = " << v << endl;
+    
+    cout << "НОД = " << gcd << endl << "линейное разложение по Евклиду  u = " << u << "  v = " << v << endl;
+    cout << c << " * " << u << " + " << m << " * " << v << " = " << gcd << endl;
 
 
 
