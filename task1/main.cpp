@@ -6,7 +6,7 @@ int main(){
 
     long long a ;
     long long p ;
-    long long x ;
+    long long mod ;
 
     
 
@@ -16,18 +16,18 @@ int main(){
     cout << "Введите степень p: ";
     cin >> p;
 
-    cout << "Введите модуль x: ";
-    cin >> x;
+    cout << "Введите модуль mod: ";
+    cin >> mod;
 
     cout << endl;
-    cout << "Вычисляем " << a << "^" << p << " mod " << x << endl;
+    cout << "Вычисляем " << a << "^" << p << " mod " << mod << endl;
     cout << endl;
 
     cout << "Теорема Ферма" << endl;
-    Ferma(a, p, x);
+    Ferma(a, p, mod);
 
     cout << endl << "бинароное возведение в степень" << endl;
-    modBinary(a, p, x) ;
+    modBinary(a, p, mod) ;
 
 
 

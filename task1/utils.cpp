@@ -7,29 +7,29 @@ using namespace std;
 
 
 
-bool IsPrime(long long p){
-    if(p == 1){
+bool IsPrime(long long pow){
+    if(pow == 1){
         return false;
     }
-    if(p == 2 || p == 3){
+    if(pow == 2 || pow == 3){
         return true;
     }
-    if(p % 2 == 0){
+    if(pow % 2 == 0){
         return false;
     }
 
-    for(long long i = 3; i * i <= p; i+=2){
-        if(p % i == 0){
+    for(long long i = 3; i * i <= pow; i+=2){
+        if(pow % i == 0){
             return false;
         }
     }
     return true;
 }
 
-long long gcd(long long a, long long p){
-    while(p){
-        a%=p;
-        swap(a,p);
+long long gcd(long long a, long long pow){
+    while(pow){
+        a%=pow;
+        swap(a,pow);
     }
     return a;
 
@@ -51,7 +51,7 @@ void modBinary(long long base, long long power, long long modulo) {
     string binary = "";
 
 
-    long long temp = power;  // используем временную переменную
+    long long temp = power;  
     if(temp == 0) {
         binary = "0";
     } else {
@@ -83,31 +83,31 @@ void modBinary(long long base, long long power, long long modulo) {
 
 
 
-void Ferma(long long a, long long p, long long x){ //a^p mod x
-    if(!IsPrime(x)){
-        cout << "p - должно быть простым" << endl;
+void Ferma(long long a, long long pow, long long mod){ 
+    if(!IsPrime(mod)){
+        cout << "pow - должно быть простым" << endl;
         return ;
     }
 
-    long long reduced_a = a % x;
+    long long reduced_a = a % mod;
     if(reduced_a == 0){
-        cout << "a кратно x, теорема Ферма не выполняется" << endl << endl;
+        cout << "a кратно mod, теорема Ферма не выполняется" << endl << endl;
         return;
     }
     
-    if(gcd(a, x) != 1){
-        cout << "a и x не взаимно простые" << endl;
+    if(gcd(a, mod) != 1){
+        cout << "a и mod не взаимно простые" << endl;
         return ; 
     }
 
-    long long new_pow = p % (x - 1);
-    cout << endl << "Сокращаем степень: " << p << " mod " << (x - 1) << " = " << new_pow << endl;
+    long long new_pow = pow % (mod - 1);
+    cout << endl << "Сокращаем степень: " << pow << " mod " << (mod - 1) << " = " << new_pow << endl;
 
 
     long long step_result = 1;
     for(long long i = 1; i <= new_pow; i++) {
-        step_result = (step_result * reduced_a) % x;
-        cout << endl << "Шаг " << i << ": " << reduced_a << "^" << i << " mod " << x << " = " << step_result << endl;
+        step_result = (step_result * reduced_a) % mod;
+        cout << endl << "Шаг " << i << ": " << reduced_a << "^" << i << " mod " << mod << " = " << step_result << endl;
     }
     cout << "Теорема Ферма - Результат: " << step_result << endl;
 
