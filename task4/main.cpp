@@ -26,13 +26,7 @@ int main(){
 
         }
     
-    cout << mess << endl;
 
-
-    
-    for(char i: mess){
-        cout << i << endl;
-    }
 
     El_gamala(mess);
 
