@@ -84,7 +84,7 @@ void modBinary(long long base, long long power, long long modulo) {
 
 
 void Ferma(long long a, long long p, long long x){ //a^p mod x
-    if(!IsPrime(p)){
+    if(!IsPrime(x)){
         cout << "p - должно быть простым" << endl;
         return ;
     }
